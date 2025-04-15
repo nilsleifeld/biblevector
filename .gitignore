@@ -1,0 +1,8 @@
+node_modules
+static/libs
+static/css/style.css
+backup
+cmd/private
+data
+.env
+main

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>BibleVector</title>
+
+	<link rel="manifest" href="/static/manifest.json" />
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+
+	<meta itemprop="name" content="BibleVector" />
+	<meta itemprop="description"
+		content="Mit BibleVector kannst du die Bibel auf völlig neue Weise entdecken. Finde automatisch passende Bibelstellen zu deinem Thema dank moderner Vektorsuche." />
+
+	<meta property="og:url" content="biblevector.nilsleifeld.de" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="BibleVector" />
+	<meta property="og:site_name" content="BibleVector" />
+	<meta property="og:description"
+		content="Mit BibleVector kannst du die Bibel auf völlig neue Weise entdecken. Finde automatisch passende Bibelstellen zu deinem Thema dank moderner Vektorsuche." />
+
+	<meta name="twitter:site" content="BibleVector" />
+	<meta name="twitter:creator" content="Nils Leifeld" />
+	<meta name="twitter:title" content="BibleVector" />
+	<meta name="twitter:url" content="biblevector.nilsleifeld.de" />
+	<meta name="twitter:description"
+		content="Mit BibleVector kannst du die Bibel auf völlig neue Weise entdecken. Finde automatisch passende Bibelstellen zu deinem Thema dank moderner Vektorsuche." />
+
+	<link href="/static/css/style.css" rel="stylesheet">
+	<script type="importmap">
+      {
+        "imports": {
+          "clsx": "/static/libs/clsx.js",
+          "tailwind-merge": "/static/libs/tailwind-merge.js",
+          "lit-html": "/static/libs/lit-html.js",
+          "lit-html/directives/repeat.js": "/static/libs/lit-html-directives-repeat.js"
+        }
+      }
+    </script>
+</head>
+
+<body>
+	<script type="application/json" id="data">{{ . }}</script>
+	<div id="root"></div>
+	<script type="module" src="/static/explorer/main.js"></script>
+</body>
+
+</html>

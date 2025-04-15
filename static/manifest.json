@@ -1,0 +1,10 @@
+{
+  "name": "BibleVector",
+  "short_name": "BibleVector",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "icons": []
+}
