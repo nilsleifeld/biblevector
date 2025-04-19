@@ -27,7 +27,7 @@ export function win(ctrl, { windowId, book, chapter, selector }) {
       popover
       id="${chapterSelectorId}"
       style="top: anchor(--${chapterSelectorId} bottom); left: anchor(--${chapterSelectorId} center);"
-      class="${cn('rounded-lg bg-white border border-gray-200', {
+      class="${cn('rounded-lg bg-base-100 border border-base-300', {
         'mt-1 -translate-x-1/2': isCssAnchorSupport(),
         'fixed inset-y-0 mx-auto my-auto': !isCssAnchorSupport(),
       })}"
@@ -118,9 +118,9 @@ export function win(ctrl, { windowId, book, chapter, selector }) {
       </div>
     </div>
     <article
-      class="relative flex flex-col w-full max-w-3xl min-w-2sm h-full overflow-y-scroll scrollbar border border-gray-200 rounded-lg"
+      class="relative flex flex-col w-full max-w-3xl min-w-2sm h-full overflow-y-scroll scrollbar border border-base-300 rounded-lg"
     >
-      <header class="flex sticky p-1 top-0 bg-white justify-between items-center">
+      <header class="flex sticky p-1 top-0 bg-base-100 justify-between items-center">
         <div>
           <button
             class="btn btn-ghost p-2"

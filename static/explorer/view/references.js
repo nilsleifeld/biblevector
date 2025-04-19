@@ -9,8 +9,8 @@ export function references(ctrl) {
   const section = ctrl.getSectionReferences(ctrl.sectionIdOfReferences);
 
   return html`
-    <article class="relative flex flex-col min-w-[7rem] h-full border border-gray-200 rounded-lg">
-      <header class="p-2 border-b border-gray-200 flex justify-center items-center">
+    <article class="relative flex flex-col min-w-[7rem] h-full border border-base-300 rounded-lg">
+      <header class="p-2 border-b border-base-300 flex justify-center items-center">
         ${section
           ? html`
               <div class="tooltip tooltip-left" data-tip="${section?.title}">
