@@ -33,7 +33,7 @@ declare global {
         title: string;
         chapter: number;
         book: number;
-        sectionId: string;
+        sectionId: number;
         references: ChapterReference[];
       };
       type ChapterSection = {
@@ -47,7 +47,7 @@ declare global {
         title: string;
         book: number;
         chapter: number;
-        sectionId: string;
+        sectionId: number;
         startVerse: number;
         endVerse: number;
       };

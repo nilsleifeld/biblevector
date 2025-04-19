@@ -41,7 +41,10 @@ function reference(ctrl, ref) {
   return html`
     <li>
       <div class="tooltip tooltip-left" data-tip="${ref.title}">
-        <button class="btn btn-ghost btn-sm h-auto p-1" @click="${() => ctrl.openWindow(ref.book, ref.chapter)}">
+        <button
+          class="btn btn-ghost btn-sm h-auto p-1"
+          @click="${() => ctrl.openReference(ref.book, ref.chapter, ref.sectionId)}"
+        >
           <span>${book.abbreviation} ${ref.chapter},${ref.startVerse}-${ref.endVerse}</span>
         </button>
       </div>

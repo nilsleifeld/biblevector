@@ -23,8 +23,8 @@ export class Controllar {
    * @param {number} chapter
    */
   getChapter(book, chapter) {
-    return this.query.get({
-      queryKey: ['books', book, 'chapters', chapter],
+    return this.query.fetch({
+      queryKey: chapterQueryKey(book, chapter),
       queryFn: () => getBooksSections(book, chapter),
       enabled: !!book && !!chapter,
     });
@@ -34,14 +34,51 @@ export class Controllar {
    * @param {number} book
    * @param {number} chapter
    */
-  async openWindow(book, chapter) {
+  openWindow(book, chapter) {
+    this.#openWindow(book, chapter);
+    this.redraw();
+  }
+
+  /**
+   * @param {number} book
+   * @param {number} chapter
+   */
+  #openWindow(book, chapter) {
+    const windowId = randomID();
     this.windows.push({
-      windowId: randomID(),
+      windowId: windowId,
       book: book,
       chapter: chapter,
       selector: {},
     });
+    return windowId;
+  }
+
+  /**
+   * @param {number} book
+   * @param {number} chapter
+   * @param {number} sectionId
+   */
+  openReference(book, chapter, sectionId) {
+    const windowId = this.#openWindow(book, chapter);
     this.redraw();
+    const chapterKey = chapterQueryKey(book, chapter);
+    const unsubscribe = this.query.subscribe(chapterKey, () => {
+      this.scrollWindowSectionIntoView(windowId, sectionId);
+      unsubscribe();
+    });
+  }
+
+  /**
+   * @param {string} windowId
+   * @param {number} sectionId
+   */
+  scrollWindowSectionIntoView(windowId, sectionId) {
+    const sectionEl = document.getElementById(this.windowChapterSectionId(windowId, sectionId));
+    if (!sectionEl) {
+      throw new Error(`Section ${sectionId} in window ${windowId} not found`);
+    }
+    sectionEl.scrollIntoView();
   }
 
   /**
@@ -84,7 +121,7 @@ export class Controllar {
    * @param {number} sectionId
    */
   getSectionReferences(sectionId) {
-    return this.query.get({
+    return this.query.fetch({
       queryKey: ['sections', sectionId, 'references'],
       queryFn: () => getChapterReferencesFromSection(sectionId),
       enabled: !!sectionId,
@@ -140,4 +177,20 @@ export class Controllar {
     win.selector.book = book;
     this.redraw();
   }
+
+  /**
+   * @param {string} windowId
+   * @param {number} sectionId
+   */
+  windowChapterSectionId(windowId, sectionId) {
+    return `window-${windowId}-${sectionId}`;
+  }
+}
+
+/**
+ * @param {number} book
+ * @param {number} chapter
+ */
+function chapterQueryKey(book, chapter) {
+  return ['books', book, 'chapters', chapter];
 }

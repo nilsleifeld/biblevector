@@ -193,7 +193,7 @@ export function win(ctrl, { windowId, book, chapter, selector }) {
         ${sections
           ? sections.map(
               (section) => html`
-                <section>
+                <section id="${ctrl.windowChapterSectionId(windowId, section.sectionId)}">
                   <h2>
                     <button
                       class="btn btn-ghost px-0 py-1 text-start h-auto text-lg my-3 font-bold"

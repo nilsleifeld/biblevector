@@ -33,7 +33,7 @@ export class QueryClient {
    *
    * @returns {T | null | undefined}
    */
-  get(options) {
+  fetch(options) {
     if (!options.enabled) {
       return null;
     }
