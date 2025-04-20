@@ -15,7 +15,7 @@ export function view(ctrl) {
         <span>
           © This Bible is copyrighted, however it may be duplicated and used for non-commercial purposes only. | Made
           with 🖤 by
-          <a class="text-base-content" href="https://nilsleifeld.de">Nils</a>
+          <a class="text-base-content" href="https://nilsleifeld.de" target="_blank">Nils</a>
         </span>
       </footer>
     </div>
