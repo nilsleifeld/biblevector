@@ -21,7 +21,7 @@ COPY . .
 COPY --from=build-node /app/static /app/static
 RUN GOARCH=amd64 CGO_ENABLED=1 GOOS=linux go build -o main cmd/server/main.go
 
-FROM ubuntu:22.04 as prod
+FROM ubuntu:22.04 AS prod
 RUN apt-get update && apt-get install -y \
     libssl3 \
     libc6 \
